@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1298" height="447" viewBox="0 0 1298 447">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        filter: url(#filter-2);
+      }
+    </style>
+    <filter id="filter" x="0" y="0" width="922" height="446" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#fff"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#818181"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#ff8b38"/>
+      <feComposite result="composite-2" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in2="blend"/>
+    </filter>
+  </defs>
+  <path class="cls-1" d="M0,444L157,0H265L424,443H323L290,339H137L102,446ZM161,258L212,81l56,175ZM422,443L568,218,431,2H539l88,156L721,2H827.067L688,215.5,827.067,444.926H723L627,269,522,444.926Zm468,3V8h32V446H890Z"/>
+  <g class="cls-2">
+    <path class="cls-3" d="M890,446V8h32V446H890Z"/>
+    <path class="cls-3" d="M988,8.51h310V32H1160V446h-33V33H988V8.51Z"/>
+  </g>
+</svg>
