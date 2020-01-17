@@ -1,0 +1,114 @@
+footer {
+    background-color: @footer-bgc-main;
+
+    .contacts {
+        background-color: @footer-bgc-contacts;
+
+        .content {
+            padding-top: 60px;
+            padding-bottom: 80px;
+            display: flex;
+            flex-wrap: wrap;
+
+            div {
+                width: 33%;
+                text-align: center;
+                line-height: 23px;
+                color: @base-color;
+
+                h4 {
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+
+                p {
+                    color: @footer-contacts-p;
+                }
+
+                .share-icons {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+
+                    .share-icon {
+                        .icon;
+                        margin-left: 10px;
+                        margin-right: 10px;
+
+                        i:hover {
+                            color: @button-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        .content {
+            p {
+                color: @p-text;
+                font-size: 14px;
+                line-height: 23px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                text-align: center;
+                margin-bottom: 0px;
+                margin-top: 0px;
+
+                i {
+                    color: @button-color;
+                }
+
+                span {
+                    color: @base-color;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        .contacts .content {
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+            div {
+                h4 {
+                    font-size: 10px;
+                    font-weight: 600;
+                }
+
+                p {
+                    font-size: 8px;
+                    line-height: 12px;
+                }
+
+                .share-icons {
+                    .share-icon {
+                        border-width: 1px;
+                        height: 23px;
+                        width: 23px;
+                        margin-left: 2px;
+                        margin-right: 2px;
+
+                        i {
+                            font-size: 12px;
+                            line-height: 0px;
+                            padding: 6px;
+                            color: @base-color;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .copyright .content p {
+            font-size: 12px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+}
