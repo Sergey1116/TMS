@@ -20,27 +20,27 @@ var data_users = [{
 {
     let res_promt = prompt("Enter user last name:");
 
-    let res_users = GetAllMatches(data_users, res_promt);
+    let res_users = getAllMatches(data_users, res_promt);
 
     outputToAlert(res_users);
 
-    res_users = GetAllMatchesCaseInsensitive(data_users, res_promt);
+    res_users = getAllMatchesCaseInsensitive(data_users, res_promt);
 
     outputToAlert(res_users);
 }
 
-function GetAllMatches(data_users, res_promt) {
+function getAllMatches(data_users, res_promt) {
     let res = [];
     res = data_users.filter(user => (user.lastName === res_promt));
     return res;
 }
 
-function GetAllMatchesCaseInsensitive(data_users, res_promt) {
-    let res = [];
+function getAllMatchesCaseInsensitive(data_users, res_promt) {
     let funcCastLit = function (lastName) {
         return lastName.replace(/\s+/g, '').toUpperCase();
     }
-    res = data_users.filter(user => (funcCastLit(user.lastName) === funcCastLit(res_promt)));
+    res_promt = funcCastLit(res_promt);
+    let res = data_users.filter(user => (funcCastLit(user.lastName) === res_promt));
     return res;
 }
 
