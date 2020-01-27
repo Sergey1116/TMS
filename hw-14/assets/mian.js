@@ -1,18 +1,10 @@
 //task_1
 {
     const word = prompt("Enter the word");
-    let isPolindrom = true;
-    for (let index = 0; index < Math.floor(word.length / 2); index++) {
-        if (word[index] !== word[word.length - 1 - index]) {
-            isPolindrom = false;
-            break;
-        }
-    }
-
-    if (isPolindrom === true) {
-        alert(`The word: ${word} is a polindrome!`)
+    if (isPolindrom(word)) {
+        alert(`The word: "${word}" is a polindrome!`);
     } else {
-        alert(`The word: ${word} isn\`t a polindrome!`)
+        alert(`The word: "${word}" isn\`t a polindrome!`);
     }
 }
 
@@ -26,9 +18,19 @@
 //task_3
 {
     let array = createRandomArray(10, 100);
-    let rezArray = changeNumberToString(array, 0, "zero");
-    console.log(array);
-    console.log(rezArray);
+    console.log(createRandomArray(10, 100));
+    console.log(changeNumberToString(array, 0, "zero"));
+}
+
+function isPolindrom(word) {
+    let result = true;
+    for (let i = 0; i < Math.floor(word.length / 2); i++) {
+        if (word[i] !== word[word.length - 1 - i]) {
+            result = false;
+            break;
+        }
+    }
+    return result;
 }
 
 function createRandomArray(maxLenght, maxNumber) {
@@ -36,25 +38,18 @@ function createRandomArray(maxLenght, maxNumber) {
     while (arr.length < maxLenght) {
         let rundNumber = Math.floor(Math.random() * (maxNumber + 1));
 
-        if (arr.indexOf(rundNumber) === -1) {
+        if (!arr.includes(rundNumber)) {
             arr.push(rundNumber);
         }
     }
     return arr;
 }
 
-function changeNumberToString(arraChange, number, numString) {
-    return arraChange.map((num) => {
-        let index = num.toString().indexOf(number);
-        if (index === -1) {
-            return num;
-        } else {
-            do {
-                num = num.toString();
-                num = num.substring(0, index) + numString + num.substring(index + 1, index.length);
-                index = num.indexOf(number);
-            } while (index !== -1)
-            return num;
+function changeNumberToString(arrChange, number, numString) {
+    return arrChange.map((num) => {
+        if (num.toString().includes(number)) {
+            num = num.toString().replace(new RegExp(number, 'g'), numString);
         }
+        return num;
     });
 }
