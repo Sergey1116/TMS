@@ -18,19 +18,17 @@
 //task_3
 {
     let array = createRandomArray(10, 100);
-    console.log(createRandomArray(10, 100));
+    console.log(array);
     console.log(changeNumberToString(array, 0, "zero"));
 }
 
 function isPolindrom(word) {
-    let result = true;
     for (let i = 0; i < Math.floor(word.length / 2); i++) {
         if (word[i] !== word[word.length - 1 - i]) {
-            result = false;
-            break;
+            return false;
         }
     }
-    return result;
+    return true;
 }
 
 function createRandomArray(maxLenght, maxNumber) {
