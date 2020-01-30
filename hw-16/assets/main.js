@@ -28,9 +28,9 @@
 
 //task 2
 {
-    const entrances = validValue("Enter entrances");
-    const flors = validValue("Enter floors");
-    const apartmentsPerFlor = validValue("Enter the number of apartments per floor");
+    const entrances = validValue("Enter entrances", 1, 10);
+    const flors = validValue("Enter floors", 1, 25);
+    const apartmentsPerFlor = validValue("Enter the number of apartments per floor", 1, 20);
     const apartment = validValue("Enter apartment №");
 
     let res = calculateLocationApartment(entrances, flors, apartmentsPerFlor, apartment);
@@ -55,12 +55,11 @@
         }
     }
 
-    function validValue(text) {
+    function validValue(text, minVal, maxVal) {
         let val;
-
         do {
-            val = Number(prompt(`${text}`));
-        } while (!Number.isInteger(val) || (val <= 0))
+                val = Number(prompt(`${text}`));
+        } while (!Number.isInteger(val) || (val < minVal || (val > maxVal)))
 
         return val;
     }
@@ -94,7 +93,7 @@
         resNum.toString = function () {
             return res;
         };
-        
+
         return resNum;
     }
 
