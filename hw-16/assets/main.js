@@ -14,16 +14,27 @@
             return sum + current;
         });
     }
+
+    function getSalary2(sal) {
+        let res = 0;
+
+        for (const i in sal) {
+            res += sal[i];
+        }
+
+        return res;
+    }
 }
 
 //task 2
 {
-    const entrances = prompt("Enter entrances");
-    const flors = prompt("Enter floors");
-    const apartmentsPerFlor = prompt("Enter the number of apartments per floor");
-    const apartment = prompt("Enter apartment №");
+    const entrances = validValue("Enter entrances");
+    const flors = validValue("Enter floors");
+    const apartmentsPerFlor = validValue("Enter the number of apartments per floor");
+    const apartment = validValue("Enter apartment №");
 
-    const res = calculateLocationApartment(entrances, flors, apartmentsPerFlor, apartment)
+    let res;
+
     if (res) {
         alert(`Apartment: ${res.apartment}.\nEntrance: ${res.entrance}.\nFlor: ${res.floor}.`);
     } else {
@@ -31,29 +42,41 @@
     }
 
     function calculateLocationApartment(entrances, flors, apartmentsPerFlor, apartment) {
-        const apartments = entrances * flors * apartmentsPerFlor;
-        if (apartments < apartment) {
+        const apartmentsPerEntrances = apartmentsPerFlor * flors;
+
+        if (entrances * apartmentsPerEntrances < apartment) {
             return null;
         }
+
         return {
-            entrance: Math.ceil(apartment / (flors * apartmentsPerFlor)),
-            floor: Math.ceil((apartment % (flors * apartmentsPerFlor)) / apartmentsPerFlor),
+            entrance: Math.ceil(apartment / apartmentsPerEntrances),
+            floor: Math.ceil((apartment % apartmentsPerEntrances) / apartmentsPerFlor),
             apartment: apartment
         }
+    }
+
+    function validValue(text) {
+        let val;
+
+        do {
+            val = Number(prompt(`${text}`));
+        } while (!Number.isInteger(val) || (val <= 0))
+
+        return val;
     }
 }
 
 // task 3
 {
     var generator = sequence(10, 3);
-    console.log(generator()); // 10
-    console.log(generator()); // 13
-    console.log(generator()); // 16
+    console.log(generator());
+    console.log(generator());
+    console.log(generator());
 
-    function sequence(start, step){
-        rez = start-step;
-        return function(){
-            return rez+=step;
+    function sequence(start, step) {
+        let rez = start - step;
+        return function () {
+            return rez += step;
         }
     }
 }
@@ -67,12 +90,14 @@
             res += n;
             return resNum;
         };
+
         resNum.toString = function () {
             return res;
         };
+        
         return resNum;
     }
 
     let x = sum(2)(5)(10);
-    alert(x); 
+    alert(x);
 }
