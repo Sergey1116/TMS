@@ -33,7 +33,7 @@
     const apartmentsPerFlor = validValue("Enter the number of apartments per floor");
     const apartment = validValue("Enter apartment №");
 
-    let res;
+    let res = calculateLocationApartment(entrances, flors, apartmentsPerFlor, apartment);
 
     if (res) {
         alert(`Apartment: ${res.apartment}.\nEntrance: ${res.entrance}.\nFlor: ${res.floor}.`);
