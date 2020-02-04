@@ -50,7 +50,7 @@
 
         return {
             entrance: Math.ceil(apartment / apartmentsPerEntrances),
-            floor: Math.ceil((apartment % apartmentsPerEntrances) / apartmentsPerFlor),
+            floor: Math.ceil((apartment % apartmentsPerEntrances) / apartmentsPerFlor)||flors,
             apartment: apartment
         }
     }
