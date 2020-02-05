@@ -24,48 +24,41 @@
     console.log(isAnagram('fhdsjk', ' dsjkfh'));
 
     function isAnagram(word1, word2) {
-
-        return sortStr(word1) === sortStr(word2);
+        return sortStrByLett(word1) === sortStrByLett(word2);
     }
 
-    function sortStr(str) {
-
+    function sortStrByLett(str) {
         return str.toLowerCase().replace(new RegExp(/[^a-zа-я0-9]+/g), '').split('').sort().join('');
     }
 }
 
 // task 3
 {
-    console.log(getFibonacci(9));
-    console.log(getFibonacci2(9));
+    console.log(getFibonacci(10));
+    console.log(getFibonacci2(10));
 
     function getFibonacci(n = 0) {
-        switch (n) {
-            case 0:
-                return 0;
-            case 1:
-                return 1;
-            default:
-                return getFibonacci(n - 1) + getFibonacci(n - 2);
+        if (n < 2) {
+            return n;
+        } else {
+            return getFibonacci(n - 1) + getFibonacci(n - 2);
         }
     }
+}
 
-    function getFibonacci2(n = 0) {
-        arr = [];
-        arr.push(0);
-        arr.push(1);
-        if (n === 0) {
-            return arr[0];
+function getFibonacci2(n = 0) {
+    let arr = [0, 1];
+    if (n === 0) {
+        return arr[0];
+    }
+    if (n === 1) {
+        return arr[1];
+    }
+    if (n > 1) {
+        for (let i = 2; i <= n; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2];
         }
-        if (n === 1) {
-            return arr[1];
-        }
-        if (n > 1) {
-            for (let i = 2; i <= n; i++) {
-                arr[i] = arr[i - 1] + arr[i - 2];
-            }
-            return arr[n];
-        }
+        return arr[n];
     }
 }
 
@@ -77,12 +70,12 @@
     function sum(n) {
         let arr = [];
 
-        for (let i = 0; i < n; i++) {
-            arr[i] = i + 1;
+        for (let i = 1; i <= n; i++) {
+            arr[i] = i;
         }
 
         return arr.join('').split('').reduce((acc, curr) => {
-            return acc+= parseInt(curr);
+            return acc += parseInt(curr);
         }, 0);
     }
 
