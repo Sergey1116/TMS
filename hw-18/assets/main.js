@@ -7,13 +7,15 @@ function buttonFizzBuzz() {
     }
 
     function createUlArr(arr) {
-        let ul = document.getElementById("fizzBuzz");
-        ul.innerHTML = 'Your list:';
+        const fragment = document.createDocumentFragment();
         arr.forEach(el => {
-            let li = document.createElement("li");
+            const li = document.createElement("li");
             li.textContent = el;
-            ul.append(li);
+            fragment.appendChild(li);
         });
+
+        document.getElementById('fizzBuzz').innerText = 'Your list:'
+        document.getElementById('fizzBuzz').appendChild(fragment);
     }
 
     function fizzBuzz(n) {
