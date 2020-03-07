@@ -1,3 +1,18 @@
+
+mainSearch('Minsk');
+
+window.onload = function(){
+    setDayName();
+    clock();
+}
+
+document.getElementById('search').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        mainSearch(document.getElementById('search').value);
+    }
+});
+
+
 function httpGet(url) {
     return new Promise((resolve, reject) => {
         let httpRequest = new XMLHttpRequest();
@@ -20,41 +35,54 @@ function httpGet(url) {
     });
 }
 
-(async function () {
-    const apiBaseUrl = "http://api.weatherstack.com/current?access_key=f6c4ef71c968415a71d2357e92e0d213";
+async function mainSearch(city) {
+    const apiBaseUrl = "http://api.openweathermap.org/data/2.5/weather?appid=784d666d822b6f97fade28b03059669d&units=metric";
 
     const getSearchCityUrl = cityName => {
-        return `${apiBaseUrl}&query=${cityName.toLowerCase()}`;
+        return `${apiBaseUrl}&q=${cityName}`;
     };
 
     try {
-        let searchCityResp = await httpGet(getSearchCityUrl("minsk"));
+        let searchCityResp = await httpGet(getSearchCityUrl(city));
         console.log(JSON.parse(searchCityResp));
         insertWeather(JSON.parse(searchCityResp));
-        document.querySelector(".wether-module").setAttribute("display", "");
     } catch (ex) {
+        document.getElementById("search").value = "Not found";
         console.log(ex);
     }
-})();
+};
 
 function insertWeather(weatherObj) {
-    document.querySelector(".location").textContent = weatherObj.request.query;
+    document.getElementById("search").value = weatherObj.name;
 
-    document.querySelector(".date-time").textContent = new Date(weatherObj.location.localtime).toLocaleDateString();
+    document.querySelector(".widget-weather>.header-ww>div>p").textContent = weatherObj.weather[0].description;
 
-    document.querySelector(".image-weather>img").setAttribute("srcset", weatherObj.current.weather_icons[0]);
+    document.querySelector(".widget-weather>.header-ww>img").src = `https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/${weatherObj.weather[0].icon}.png`;
 
-    document.querySelector(".temperature>span").textContent = weatherObj.current.temperature;
+    document.querySelector(".widget-weather>.main-ww>.right>span").textContent = Math.round(weatherObj.main.temp);
 
-    document.querySelector(".weather-descriptions").textContent = weatherObj.current.weather_descriptions.join(", ");
-
-    document.querySelector(".observation_time>span").textContent = weatherObj.current.observation_time;
-
-    let ex = document.querySelectorAll(".explanation>ul>li>span");
-
-    let t = ["wind_speed", "wind_degree", "wind_dir", "pressure", "humidity", "feelslike", "uv_index", "visibility"];
-
-    for (let i = 0; i < ex.length; i++) {
-        ex[i].textContent = weatherObj.current[t[i]];
-    }
+    let liSpan = document.querySelectorAll(".widget-weather>.main-ww>.left>ul>li>span");
+    liSpan[0].textContent = weatherObj.main.feels_like;
+    liSpan[1].textContent = weatherObj.wind.speed;
+    liSpan[2].textContent = weatherObj.main.humidity;
+    liSpan[3].textContent = weatherObj.main.pressure;
 }
+
+function setDayName() {
+    const now = new Date();
+    const day = now.toLocaleDateString('en-US', {
+        weekday: 'long'
+    });
+
+    document.querySelector(".widget-weather>.fotter-ww>.weekday").textContent = day;
+
+    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    setTimeout(setDayName, tomorrow - now)
+};
+
+function clock() {
+    const time = new Date();
+    document.querySelector(".widget-weather>.fotter-ww>.time").textContent = time.toLocaleTimeString('en-US');
+
+    setInterval(clock, 500)
+};
