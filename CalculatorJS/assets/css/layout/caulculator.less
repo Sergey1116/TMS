@@ -1,0 +1,73 @@
+#caulculator {
+    background-color: @bgc-main;
+    color: @text-main;
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    text-align: center;
+    margin: 50px auto;
+    border-radius: 15px;
+
+    div {
+        line-height: 40px;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .result {
+        margin: 30px 15px 10px 5px;
+        width: 100%;
+        text-align: end;
+        font-size: 24px;
+    }
+
+    div:not(:first-child) {
+        width: 20%;
+        height: 40px;
+        border-radius: 50%;
+        margin: 5px;
+    }
+
+    .button-memory{
+        background-color: @button-memory;
+    }
+    .button-memory:hover{
+        background-color: @button-opt;
+    }
+
+
+    .button-opt {
+        background-color: @button-opt;
+        color: @bgc-main;
+    }
+
+    .button-opt:hover {
+        background-color: @text-main;
+    }
+
+    .button-oper {
+        background-color: @button-oper;
+    }
+
+    .button-oper:hover {
+        background-color: @text-main;
+        color: @button-oper;
+    }
+
+    .button-num {
+        background-color: @button-num;
+    }
+
+    .button-num:hover {
+        background-color: @text-main;
+        color: @button-num;
+    }
+
+    div.zero {
+        width: 45%;
+        border-radius: 40px;
+        text-align: left;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+}

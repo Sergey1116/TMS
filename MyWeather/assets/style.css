@@ -1,0 +1,97 @@
+.widget-weather {
+    font-family: 'Roboto', sans-serif;
+    background-color: #feb020;
+    border-radius: 6px;
+    width: 300px;
+    min-height: 200px;
+    position: relative;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.widget-weather h2,
+p {
+    margin: 0px;
+    text-transform: capitalize;
+}
+
+.header-ww {
+    padding: 5px;
+    min-height: 80px;
+}
+
+.header-ww div {
+    width: 55%;
+    color: white;
+    padding: 10px;
+}
+
+
+#search {
+    width: 80%;
+    background-color: #feb020;
+    border: 0px;
+    border-bottom: 2px solid white;
+    color: white;
+    outline: none;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.header-ww>img {
+    position: absolute;
+    left: 55%;
+    top: -20px;
+}
+
+.main-ww {
+    background-color: #fff;
+    min-height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main-ww>.right {
+    width: 60%;
+    font-size: 56px;
+    text-align: center;
+}
+
+.main-ww>.left {
+    width: 40%;
+    font-size: 14px;
+}
+
+.main-ww ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.divider {
+    width: 90%;
+    height: 1px;
+    background-color: rgb(120, 197, 233);
+    ;
+}
+
+
+.fotter-ww {
+    min-height: 20px;
+}
+
+.fotter-ww>div {
+    padding: 0px 5px;
+    color: white;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.fotter-ww .weekday {
+    float: left;
+}
+
+.fotter-ww .time {
+    float: right;
+}

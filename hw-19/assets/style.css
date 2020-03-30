@@ -1,0 +1,54 @@
+div{
+    margin: auto; 
+}
+
+button {
+    background-color: #4CAF50;
+    padding: 5px 15px;
+    text-align: center;
+    color: #fff;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    margin: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #fff;
+    color: #4CAF50;
+}
+
+#incDecBox{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+
+input{
+    font-size: 18px;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    text-align: center;
+    margin: 5px;
+}
+
+#buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 300px;
+}
+
+#buttons button{
+    width: 45%;
+}
+
+.reset{
+    background-color: rgb(209, 68, 68);
+    border-color: rgb(209, 68, 68);
+}
+
+.reset:hover {
+    background-color: #fff;
+    color: rgb(209, 68, 68);
+}
