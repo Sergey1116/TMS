@@ -1,7 +1,5 @@
 import * as test from './exportTest.js';
-
 import LinkedList from './linkedListNode.js';
-
 import BinaryTree from './binaryTree.js';
 
 // exportTest.js
@@ -30,10 +28,9 @@ import BinaryTree from './binaryTree.js';
     tree.add(32);
     tree.add(32);
 
-    console.log(tree)
-    console.log(tree.traversal());
-    console.log(tree.contains(25));
-    tree.remove2(32);
     console.log(tree.traversal());
     
+    tree.remove2(32);
+
+    console.log(tree.traversal());
 }
