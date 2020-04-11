@@ -1,58 +1,62 @@
 @import '../../styles/colors.scss';
 
-body {
-    margin: 0 auto;
-    font-family: "Open Sans", sans-serif;
-    text-align: center;
-}
-
 .about {
-    .castom-section{
-        h2{
+    .castom-section {
+        h2 {
             color: $title-color;
             margin: 100px auto 30px;
+            font-family: "Raleway";
         }
-        .divider{
+
+        .divider {
             background-color: $icon-color;
+            width: 64px;
+            height: 2px;
             margin: 0px auto 30px;
         }
-        p{
+
+        p {
             color: $text-color;
             margin-bottom: 80px;
         }
     }
-    
-    .process-discr{
-        .option-block-item{
+
+    .process-discr {
+        .option-block-item {
             width: 33.3%;
             float: left;
-            .option-icon-block{
+
+            .option-icon-block {
                 margin: 0 auto 30px;
                 width: 70px;
                 height: 70px;
                 border: 2px solid $icon-color;
                 border-radius: 50%;
                 text-align: center;
-                i{
+
+                i {
                     line-height: 70px;
                     color: $icon-color;
                     font-size: 30px;
                 }
-                i:hover{
+
+                i:hover {
                     font-size: 34px;
                 }
-                
+
             }
-            .option-discription{
+
+            .option-discription {
                 font-size: 14px;
                 line-height: 20px;
                 font-family: "Open Sans";
                 color: $text-color;
                 font-weight: 400;
-                padding: 0px  2px;
-            
+                padding: 0px 2px;
+
             }
-            .option-title{
+
+            .option-title {
                 font-size: 20px;
                 color: $title-color;
                 font-family: "Open Sans";

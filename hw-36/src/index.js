@@ -1,7 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 
+import 'normalize.css'
 import './styles/index.scss';
+
+
 import AboutAXIT from './components/AboutAXIT/AboutAXIT.js'
 
 const optionBlock = [
